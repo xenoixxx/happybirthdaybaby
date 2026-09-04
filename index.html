@@ -37,7 +37,7 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Side Plushies Containers */
+        /* Side Characters */
         .side-character {
             position: fixed;
             top: 50%;
@@ -47,48 +47,47 @@
             transition: all 0.3s ease;
         }
 
-        .side-character.left { left: 15px; }
-        .side-character.right { right: 15px; }
+        .side-character.left { left: 20px; }
+        .side-character.right { right: 20px; }
 
         .plushie-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border: 3px solid #fff;
             border-radius: 20px;
-            padding: 12px;
+            padding: 15px;
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
             text-align: center;
-            transition: transform 0.3s ease;
         }
 
         .plushie-img {
-            width: 85px;
-            height: 85px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
             display: block;
             margin: 0 auto;
             transition: transform 0.3s ease;
         }
 
-        /* Bottom Plushies Bar */
+        /* Bottom Characters Bar */
         .bottom-characters {
             position: fixed;
-            bottom: 15px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 20px;
             z-index: 100;
             pointer-events: none;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 10px 20px;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 25px;
+            border-radius: 40px;
             border: 3px solid #fff;
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.25);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
         }
 
         .bottom-characters .plushie-img {
-            width: 55px;
-            height: 55px;
+            width: 65px;
+            height: 65px;
         }
 
         /* Hero Header */
@@ -164,17 +163,6 @@
             transform: translateY(0) scale(1);
         }
 
-        .story-card img {
-            width: 100%;
-            max-width: 320px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.5);
-            border: 4px solid #fff;
-        }
-
         .story-card h2 {
             font-family: 'Pacifico', cursive;
             color: #ff477e;
@@ -222,15 +210,6 @@
             margin-bottom: 15px;
         }
 
-        .gif-container img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 15px 0 25px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.5);
-        }
-
         .button-group {
             display: flex;
             justify-content: center;
@@ -238,6 +217,7 @@
             gap: 15px;
             position: relative;
             min-height: 60px;
+            margin-top: 20px;
         }
 
         .btn {
@@ -294,7 +274,7 @@
             font-size: 2.5rem;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
             .side-character { display: none; }
             .hero h1 { font-size: 2.4rem; }
         }
@@ -302,58 +282,52 @@
 </head>
 <body>
 
+    <!-- Native SVG Image Definitions -->
+    <script>
+        const BEAR_HAPPY = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='20' cy='20' r='18' fill='%23d4a373'/><circle cx='80' cy='20' r='18' fill='%23d4a373'/><circle cx='20' cy='20' r='10' fill='%23ffcad4'/><circle cx='80' cy='20' r='10' fill='%23ffcad4'/><circle cx='50' cy='50' r='40' fill='%23d4a373'/><ellipse cx='50' cy='60' rx='18' ry='14' fill='%23faedcd'/><ellipse cx='50' cy='52' rx='8' ry='6' fill='%234a4e69'/><circle cx='35' cy='42' r='5' fill='%234a4e69'/><circle cx='65' cy='42' r='5' fill='%234a4e69'/><path d='M 42 62 Q 50 70 58 62' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='28' cy='52' r='6' fill='%23ff8fa3' opacity='0.6'/><circle cx='72' cy='52' r='6' fill='%23ff8fa3' opacity='0.6'/></svg>";
+        
+        const BEAR_SAD = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='20' cy='20' r='18' fill='%23d4a373'/><circle cx='80' cy='20' r='18' fill='%23d4a373'/><circle cx='20' cy='20' r='10' fill='%23ffcad4'/><circle cx='80' cy='20' r='10' fill='%23ffcad4'/><circle cx='50' cy='50' r='40' fill='%23d4a373'/><ellipse cx='50' cy='60' rx='18' ry='14' fill='%23faedcd'/><ellipse cx='50' cy='52' rx='8' ry='6' fill='%234a4e69'/><circle cx='35' cy='42' r='5' fill='%234a4e69'/><circle cx='65' cy='42' r='5' fill='%234a4e69'/><path d='M 42 66 Q 50 58 58 66' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M 32 48 Q 30 55 31 60' stroke='%238ecae6' stroke-width='3' fill='none'/><circle cx='28' cy='52' r='6' fill='%23ff8fa3' opacity='0.4'/></svg>";
+
+        const BUNNY_HAPPY = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><ellipse cx='30' cy='22' rx='14' ry='25' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3'/><ellipse cx='70' cy='22' rx='14' ry='25' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3'/><circle cx='50' cy='55' r='38' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3'/><ellipse cx='50' cy='60' rx='6' ry='4' fill='%23ff477e'/><circle cx='35' cy='48' r='4' fill='%234a4e69'/><circle cx='65' cy='48' r='4' fill='%234a4e69'/><path d='M 42 65 Q 50 72 58 65' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='28' cy='56' r='6' fill='%23ffb3c1'/><circle cx='72' cy='56' r='6' fill='%23ffb3c1'/></svg>";
+
+        const BUNNY_SAD = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><ellipse cx='28' cy='26' rx='12' ry='22' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3' transform='rotate(-15 28 26)'/><ellipse cx='72' cy='26' rx='12' ry='22' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3' transform='rotate(15 72 26)'/><circle cx='50' cy='55' r='38' fill='%23ffffff' stroke='%23ffb3c1' stroke-width='3'/><ellipse cx='50' cy='60' rx='6' ry='4' fill='%23ff477e'/><circle cx='35' cy='48' r='4' fill='%234a4e69'/><circle cx='65' cy='48' r='4' fill='%234a4e69'/><path d='M 42 68 Q 50 60 58 68' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M 68 50 Q 67 56 68 60' stroke='%238ecae6' stroke-width='3' fill='none'/><circle cx='28' cy='56' r='6' fill='%23ffb3c1' opacity='0.5'/><circle cx='72' cy='56' r='6' fill='%23ffb3c1' opacity='0.5'/></svg>";
+
+        const CAT_HAPPY = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='15,15 35,40 10,45' fill='%23ffb703'/><polygon points='85,15 65,40 90,45' fill='%23ffb703'/><circle cx='50' cy='52' r='38' fill='%23ffb703'/><polygon points='20,20 32,38 15,41' fill='%23ffcad4'/><polygon points='80,20 68,38 85,41' fill='%23ffcad4'/><ellipse cx='50' cy='58' rx='5' ry='3' fill='%234a4e69'/><circle cx='35' cy='48' r='4' fill='%234a4e69'/><circle cx='65' cy='48' r='4' fill='%234a4e69'/><path d='M 43 62 Q 50 68 57 62' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='28' cy='56' r='6' fill='%23ff8fa3' opacity='0.6'/><circle cx='72' cy='56' r='6' fill='%23ff8fa3' opacity='0.6'/></svg>";
+
+        const CAT_SAD = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='15,20 35,42 10,48' fill='%23ffb703'/><polygon points='85,20 65,42 90,48' fill='%23ffb703'/><circle cx='50' cy='52' r='38' fill='%23ffb703'/><ellipse cx='50' cy='58' rx='5' ry='3' fill='%234a4e69'/><circle cx='35' cy='48' r='4' fill='%234a4e69'/><circle cx='65' cy='48' r='4' fill='%234a4e69'/><path d='M 43 66 Q 50 60 57 66' stroke='%234a4e69' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M 30 50 Q 28 57 29 61' stroke='%238ecae6' stroke-width='3' fill='none'/></svg>";
+    </script>
+
     <!-- Left Side Plushie -->
     <div class="side-character left">
         <div class="plushie-card">
-            <img class="plushie-img" 
-                 src="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
-                 data-happy="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
-                 data-sad="https://upload.wikimedia.org/wikipedia/commons/0/06/Emoji_u1f63f.svg" 
-                 alt="Teddy Bear">
+            <img class="plushie-img" id="leftBear" alt="Teddy Bear">
         </div>
     </div>
 
     <!-- Right Side Plushie -->
     <div class="side-character right">
         <div class="plushie-card">
-            <img class="plushie-img" 
-                 src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
-                 data-happy="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
-                 data-sad="https://upload.wikimedia.org/wikipedia/commons/c/c5/Emoji_u1f622.svg" 
-                 alt="Bunny">
+            <img class="plushie-img" id="rightBunny" alt="Bunny">
         </div>
     </div>
 
     <!-- Bottom Plushies Bar -->
     <div class="bottom-characters">
-        <img class="plushie-img" 
-             src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Emoji_u1f431.svg" 
-             data-happy="https://upload.wikimedia.org/wikipedia/commons/1/1b/Emoji_u1f431.svg" 
-             data-sad="https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f63f.svg" 
-             alt="Cat">
-        <img class="plushie-img" 
-             src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
-             data-happy="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
-             data-sad="https://upload.wikimedia.org/wikipedia/commons/c/c5/Emoji_u1f622.svg" 
-             alt="Bunny">
-        <img class="plushie-img" 
-             src="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
-             data-happy="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
-             data-sad="https://upload.wikimedia.org/wikipedia/commons/0/06/Emoji_u1f63f.svg" 
-             alt="Bear">
+        <img class="plushie-img" id="botCat" alt="Cat">
+        <img class="plushie-img" id="botBunny" alt="Bunny">
+        <img class="plushie-img" id="botBear" alt="Bear">
     </div>
 
-    <!-- Hero / Intro -->
+    <!-- Hero Header -->
     <header class="hero">
         <h1>Happy 16th Birthday! 🎉✨</h1>
         <p>I put together a little journey just for you...</p>
         <div class="scroll-indicator">👇 Scroll Down 👇</div>
     </header>
 
-    <!-- Scrollable Cards Section -->
+    <!-- Scrollable Cards -->
     <div class="story-container">
         <div class="story-card">
-            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Birthday Celebration">
             <h2>Happy Sweet 16! 💖</h2>
             <p>
                 Wishing the most wonderful 16th birthday to someone who fills every day with so much light and joy. Turning 16 is such a special milestone, and I hope today brings you as much happiness as you give to everyone around you!
@@ -361,7 +335,6 @@
         </div>
 
         <div class="story-card">
-            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Cute Moments">
             <h2>So Many Amazing Memories 🌸</h2>
             <p>
                 Every single moment with you is unforgettable. You are kind, incredibly beautiful, and always know how to make me smile. I am so lucky to have you in my life and celebrate this special day with you!
@@ -369,7 +342,6 @@
         </div>
 
         <div class="story-card">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Cute Portrait">
             <h2>One Last Thing... 🎁</h2>
             <p>
                 Before you finish celebrating your 16th birthday, I have one very important question to ask you. Keep scrolling down! 👇
@@ -377,14 +349,10 @@
         </div>
     </div>
 
-    <!-- Final Question Section -->
+    <!-- Question Section -->
     <div class="question-section">
         <div class="card" id="questionCard">
             <h2>Will you be my girlfriend? 💖</h2>
-            
-            <div class="gif-container">
-                <img id="cuteImg" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80" alt="Puppy Eyes">
-            </div>
 
             <div class="button-group">
                 <button class="btn btn-yes" id="yesBtn">Yes!</button>
@@ -395,14 +363,36 @@
         <!-- Success Screen -->
         <div class="card" id="successCard">
             <h2>Yay! Best Decision Ever! 🥰</h2>
-            <div class="gif-container">
-                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Celebration Image">
-            </div>
-            <p style="font-size: 1.2rem; color: #590d22; font-weight: 700;">Happy 16th Birthday again, my love! ❤️✨</p>
+            <p style="font-size: 1.2rem; color: #590d22; font-weight: 700; margin-top: 20px;">Happy 16th Birthday again, my love! ❤️✨</p>
         </div>
     </div>
 
     <script>
+        // Set initial Happy SVG images
+        const leftBear = document.getElementById('leftBear');
+        const rightBunny = document.getElementById('rightBunny');
+        const botCat = document.getElementById('botCat');
+        const botBunny = document.getElementById('botBunny');
+        const botBear = document.getElementById('botBear');
+
+        function setPlushiesHappy() {
+            leftBear.src = BEAR_HAPPY;
+            rightBunny.src = BUNNY_HAPPY;
+            botCat.src = CAT_HAPPY;
+            botBunny.src = BUNNY_HAPPY;
+            botBear.src = BEAR_HAPPY;
+        }
+
+        function setPlushiesSad() {
+            leftBear.src = BEAR_SAD;
+            rightBunny.src = BUNNY_SAD;
+            botCat.src = CAT_SAD;
+            botBunny.src = BUNNY_SAD;
+            botBear.src = BEAR_SAD;
+        }
+
+        setPlushiesHappy();
+
         // Floating Hearts
         for (let i = 0; i < 18; i++) {
             let heart = document.createElement('div');
@@ -426,41 +416,31 @@
 
         cards.forEach(card => observer.observe(card));
 
-        // Plushies Hover Logic
-        const plushies = document.querySelectorAll('.plushie-img');
+        // Hover Reactions
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
-        const questionCard = document.getElementById('questionCard');
-        const successCard = document.getElementById('successCard');
+        const plushieImgs = document.querySelectorAll('.plushie-img');
 
         noBtn.addEventListener('mouseenter', () => {
-            plushies.forEach(p => {
-                p.src = p.getAttribute('data-sad');
-                p.style.transform = 'scale(0.85) translateY(5px)';
-            });
+            setPlushiesSad();
+            plushieImgs.forEach(p => p.style.transform = 'scale(0.85)');
         });
 
         noBtn.addEventListener('mouseleave', () => {
-            plushies.forEach(p => {
-                p.src = p.getAttribute('data-happy');
-                p.style.transform = 'scale(1) translateY(0)';
-            });
+            setPlushiesHappy();
+            plushieImgs.forEach(p => p.style.transform = 'scale(1)');
         });
 
         yesBtn.addEventListener('mouseenter', () => {
-            plushies.forEach(p => {
-                p.src = p.getAttribute('data-happy');
-                p.style.transform = 'scale(1.25)';
-            });
+            setPlushiesHappy();
+            plushieImgs.forEach(p => p.style.transform = 'scale(1.25)');
         });
 
         yesBtn.addEventListener('mouseleave', () => {
-            plushies.forEach(p => {
-                p.style.transform = 'scale(1)';
-            });
+            plushies.forEach(p => p.style.transform = 'scale(1)');
         });
 
-        // Expanding YES Button
+        // Button Expansion
         let scale = 1;
         const noPhrases = [
             "Are you sure?",
@@ -486,7 +466,8 @@
         });
 
         yesBtn.addEventListener('click', () => {
-            questionCard.style.display = 'none';
+            document.getElementById('questionCard').style.display = 'none';
+            const successCard = document.getElementById('successCard');
             successCard.style.display = 'block';
             successCard.classList.add('show');
             successCard.scrollIntoView({ behavior: 'smooth' });
