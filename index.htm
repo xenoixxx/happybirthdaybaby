@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Restaurant | Fresh Mediterranean & Algerian Cuisine</title>
+    <style>
+        :root {
+            --primary: #f39c12;
+            --dark: #1e272e;
+            --light: #f8f9fa;
+            --accent: #d35400;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 80vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero-text {
+            text-align: center;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+        }
+
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            display: block;
+            margin: 8px auto 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-details {
+            padding: 20px;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .menu-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-block h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Sunflower</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-text">
+            <h1>Welcome to Sunflower</h1>
+            <p>Authentic flavors, warm hospitality, and fresh daily specials in Algiers.</p>
+            <a href="#menu" class="btn">Explore Our Menu</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #555;">
+            Located in the heart of the city, Sunflower brings together traditional Algerian recipes and vibrant Mediterranean dishes. Whether you are stopping by for a quick lunch or a relaxed dinner with family, we serve fresh, locally sourced meals prepared daily.
+        </p>
+    </section>
+
+    <section id="menu" style="background-color: #f0f2f5;">
+        <h2 class="section-title">Signature Dishes</h2>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14da?auto=format&fit=crop&w=600&q=80" alt="Royal Couscous">
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-title">Royal Couscous</span>
+                        <span class="price">1,400 DZD</span>
+                    </div>
+                    <p class="menu-desc">Steamed semolina served with tender lamb, chicken, merguez, and fresh garden vegetables in a rich broth.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Grilled Seafood Platter">
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-title">Grilled Seafood Platter</span>
+                        <span class="price">2,200 DZD</span>
+                    </div>
+                    <p class="menu-desc">Fresh catch of the day including sardines, prawns, and calamari seasoned with herbs and lemon juice.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Artisan Pizza">
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-title">Sunflower Special Pizza</span>
+                        <span class="price">900 DZD</span>
+                    </div>
+                    <p class="menu-desc">Wood-fired pizza topped with fresh mozzarella, grilled vegetables, olive oil, and house sauce.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="info-container">
+            <div class="info-block">
+                <h3>Location & Hours</h3>
+                <p><strong>Address:</strong> Main Boulevard, Algiers, Algeria</p>
+                <p><strong>Open Daily:</strong> 11:30 AM – 11:00 PM</p>
+                <p><strong>Friday:</strong> 3:00 PM – 11:00 PM</p>
+            </div>
+            <div class="info-block">
+                <h3>Reservations & Orders</h3>
+                <p><strong>Phone:</strong> +213 (0) 550 00 00 00</p>
+                <p><strong>Email:</strong> contact@sunflower-dz.com</p>
+                <p><strong>Delivery:</strong> Available on major local delivery apps</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sunflower Restaurant. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
