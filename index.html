@@ -19,10 +19,10 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            padding-bottom: 80px;
+            padding-bottom: 120px;
         }
 
-        /* Background Floating Hearts */
+        /* Floating Hearts */
         .heart {
             position: fixed;
             color: rgba(255, 255, 255, 0.6);
@@ -37,9 +37,63 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
+        /* Side Plushies Containers */
+        .side-character {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .side-character.left { left: 15px; }
+        .side-character.right { right: 15px; }
+
+        .plushie-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #fff;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .plushie-img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Bottom Plushies Bar */
+        .bottom-characters {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.25);
+        }
+
+        .bottom-characters .plushie-img {
+            width: 55px;
+            height: 55px;
+        }
+
         /* Hero Header */
         .hero {
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -77,7 +131,7 @@
             60% { transform: translateY(-7px); }
         }
 
-        /* Story Section with Scroll Animations */
+        /* Story Cards */
         .story-container {
             max-width: 650px;
             margin: 0 auto;
@@ -100,7 +154,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            /* Scroll Animation Initial State */
             opacity: 0;
             transform: translateY(40px) scale(0.95);
             transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -136,7 +189,7 @@
             font-weight: 600;
         }
 
-        /* Final Question Card */
+        /* Question Section */
         .question-section {
             max-width: 500px;
             margin: 80px auto 0;
@@ -217,7 +270,6 @@
             background-color: #ff8fa3;
         }
 
-        /* Fullscreen cover mode when Yes gets huge */
         .btn-yes.covering {
             position: fixed !important;
             top: 0 !important;
@@ -233,7 +285,6 @@
             transform: none !important;
         }
 
-        /* Success Card */
         #successCard {
             display: none;
         }
@@ -242,9 +293,55 @@
             color: #ff0054;
             font-size: 2.5rem;
         }
+
+        @media (max-width: 800px) {
+            .side-character { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Left Side Plushie -->
+    <div class="side-character left">
+        <div class="plushie-card">
+            <img class="plushie-img" 
+                 src="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
+                 data-happy="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
+                 data-sad="https://upload.wikimedia.org/wikipedia/commons/0/06/Emoji_u1f63f.svg" 
+                 alt="Teddy Bear">
+        </div>
+    </div>
+
+    <!-- Right Side Plushie -->
+    <div class="side-character right">
+        <div class="plushie-card">
+            <img class="plushie-img" 
+                 src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
+                 data-happy="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
+                 data-sad="https://upload.wikimedia.org/wikipedia/commons/c/c5/Emoji_u1f622.svg" 
+                 alt="Bunny">
+        </div>
+    </div>
+
+    <!-- Bottom Plushies Bar -->
+    <div class="bottom-characters">
+        <img class="plushie-img" 
+             src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Emoji_u1f431.svg" 
+             data-happy="https://upload.wikimedia.org/wikipedia/commons/1/1b/Emoji_u1f431.svg" 
+             data-sad="https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f63f.svg" 
+             alt="Cat">
+        <img class="plushie-img" 
+             src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
+             data-happy="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emoji_u1f430.svg" 
+             data-sad="https://upload.wikimedia.org/wikipedia/commons/c/c5/Emoji_u1f622.svg" 
+             alt="Bunny">
+        <img class="plushie-img" 
+             src="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
+             data-happy="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f43b.svg" 
+             data-sad="https://upload.wikimedia.org/wikipedia/commons/0/06/Emoji_u1f63f.svg" 
+             alt="Bear">
+    </div>
 
     <!-- Hero / Intro -->
     <header class="hero">
@@ -255,10 +352,7 @@
 
     <!-- Scrollable Cards Section -->
     <div class="story-container">
-        
-        <!-- Story Card 1 -->
         <div class="story-card">
-            <!-- Replace image URL below with her photo -->
             <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Birthday Celebration">
             <h2>Happy Sweet 16! 💖</h2>
             <p>
@@ -266,9 +360,7 @@
             </p>
         </div>
 
-        <!-- Story Card 2 -->
         <div class="story-card">
-            <!-- Replace image URL below with another photo -->
             <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Cute Moments">
             <h2>So Many Amazing Memories 🌸</h2>
             <p>
@@ -276,26 +368,22 @@
             </p>
         </div>
 
-        <!-- Story Card 3 -->
         <div class="story-card">
-            <!-- Replace image URL below with a cute gif or photo -->
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y2Z2x3Y3J3eWRmeWd3OHRjc3R5Y3R5Y3R5Y3R5Y3R5Y3R5JnB2PWNmJnRzPWdpZg/cLS1dnt82k81u/giphy.gif" alt="Cute Bear Hug">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Cute Portrait">
             <h2>One Last Thing... 🎁</h2>
             <p>
                 Before you finish celebrating your 16th birthday, I have one very important question to ask you. Keep scrolling down! 👇
             </p>
         </div>
-
     </div>
 
     <!-- Final Question Section -->
     <div class="question-section">
-        
         <div class="card" id="questionCard">
             <h2>Will you be my girlfriend? 💖</h2>
             
             <div class="gif-container">
-                <img id="cuteImg" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXU2ZzZ4eXU2ZzZ4eXU2ZzZ4eXU2ZzZ4eXU2JnB2PWNmJnRzPWdpZg/26hpW3f2c25C2l5V6/giphy.gif" alt="Puppy Eyes">
+                <img id="cuteImg" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80" alt="Puppy Eyes">
             </div>
 
             <div class="button-group">
@@ -308,15 +396,14 @@
         <div class="card" id="successCard">
             <h2>Yay! Best Decision Ever! 🥰</h2>
             <div class="gif-container">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y2Z2x3Y3J3eWRmeWd3OHRjc3R5Y3R5Y3R5Y3R5Y3R5Y3R5JnB2PWNmJnRzPWdpZg/cLS1dnt82k81u/giphy.gif" alt="Celebration GIF">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Celebration Image">
             </div>
             <p style="font-size: 1.2rem; color: #590d22; font-weight: 700;">Happy 16th Birthday again, my love! ❤️✨</p>
         </div>
-
     </div>
 
     <script>
-        // Generate Floating Hearts
+        // Floating Hearts
         for (let i = 0; i < 18; i++) {
             let heart = document.createElement('div');
             heart.className = 'heart';
@@ -327,7 +414,7 @@
             document.body.appendChild(heart);
         }
 
-        // Scroll Pop-up Observer
+        // Scroll Observer
         const cards = document.querySelectorAll('.story-card, .card');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -339,13 +426,42 @@
 
         cards.forEach(card => observer.observe(card));
 
-        // Yes/No Button Logic
-        let scale = 1;
+        // Plushies Hover Logic
+        const plushies = document.querySelectorAll('.plushie-img');
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const questionCard = document.getElementById('questionCard');
         const successCard = document.getElementById('successCard');
 
+        noBtn.addEventListener('mouseenter', () => {
+            plushies.forEach(p => {
+                p.src = p.getAttribute('data-sad');
+                p.style.transform = 'scale(0.85) translateY(5px)';
+            });
+        });
+
+        noBtn.addEventListener('mouseleave', () => {
+            plushies.forEach(p => {
+                p.src = p.getAttribute('data-happy');
+                p.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        yesBtn.addEventListener('mouseenter', () => {
+            plushies.forEach(p => {
+                p.src = p.getAttribute('data-happy');
+                p.style.transform = 'scale(1.25)';
+            });
+        });
+
+        yesBtn.addEventListener('mouseleave', () => {
+            plushies.forEach(p => {
+                p.style.transform = 'scale(1)';
+            });
+        });
+
+        // Expanding YES Button
+        let scale = 1;
         const noPhrases = [
             "Are you sure?",
             "Think again! 🥺",
