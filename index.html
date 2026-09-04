@@ -22,7 +22,7 @@
             padding-bottom: 80px;
         }
 
-        /* Floating Hearts Background */
+        /* Floating Hearts Animation */
         .heart {
             position: fixed;
             color: rgba(255, 255, 255, 0.7);
@@ -37,17 +37,29 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
+        /* Fade-in Animation for Cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Hero Header */
         .hero {
-            min-height: 65vh;
+            padding: 60px 20px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
             z-index: 1;
             position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 {
@@ -91,7 +103,6 @@
 
         .story-card {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             padding: 30px 25px;
             border-radius: 25px;
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
@@ -100,6 +111,13 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
         }
 
         .story-card img {
@@ -140,6 +158,7 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         .card {
@@ -210,7 +229,7 @@
             background-color: #ff8fa3;
         }
 
-        /* Fullscreen takeover after 6 clicks */
+        /* Fullscreen takeover on 6th click */
         .btn-yes.covering {
             position: fixed !important;
             top: 0 !important;
@@ -219,7 +238,7 @@
             height: 100vh !important;
             border-radius: 0 !important;
             z-index: 99999 !important;
-            font-size: 3rem !important;
+            font-size: 2.5rem !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -229,6 +248,7 @@
 
         #successCard {
             display: none;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         #successCard h2 {
@@ -281,7 +301,6 @@
 
         <!-- Story Card 3 -->
         <div class="story-card">
-            <img src="mochi-cats.gif" alt="Mochi Cats Hug">
             <h2>Looking Ahead Together ✨</h2>
             <p>
                 As you start this brand new year of your life, I want you to know that I’ll always be right here cheering you on in everything you do. Watching you grow, achieve your goals, and shine is one of my favorite things in the world.
@@ -330,7 +349,7 @@
     </div>
 
     <script>
-        // Floating Hearts Background
+        // Floating Hearts Background Animation
         for (let i = 0; i < 20; i++) {
             let heart = document.createElement('div');
             heart.className = 'heart';
@@ -341,7 +360,7 @@
             document.body.appendChild(heart);
         }
 
-        // 6-Click Logic for NO Button
+        // Controlled Button Growth Logic
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const questionCard = document.getElementById('questionCard');
@@ -364,17 +383,19 @@
                 yesBtn.innerHTML = "YES! 💖 (Click Me!)";
                 noBtn.style.display = 'none';
             } else {
-                const scale = 1 + (noClickCount * 0.8);
+                // Grows slightly up to max 1.35x size
+                const scale = 1 + (noClickCount * 0.07);
                 yesBtn.style.transform = `scale(${scale})`;
                 noBtn.innerText = noPhrases[noClickCount - 1];
             }
         });
 
         yesBtn.addEventListener('click', () => {
+            yesBtn.classList.remove('covering');
             questionCard.style.display = 'none';
             successCard.style.display = 'block';
             successCard.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
-</html>\
+</html>
