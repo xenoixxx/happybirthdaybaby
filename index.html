@@ -175,9 +175,9 @@
         }
 
         .gif-container img {
-            width: 200px;
+            width: 220px;
             height: auto;
-            max-height: 200px;
+            max-height: 220px;
             object-fit: contain;
             border-radius: 20px;
             margin: 15px 0 25px;
@@ -203,7 +203,7 @@
             font-weight: 800;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transition: transform 0.25s ease, background-color 0.2s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
@@ -226,7 +226,7 @@
             background-color: #ff8fa3;
         }
 
-        /* Expanding YES logic */
+        /* Fullscreen takeover after 6 clicks */
         .btn-yes.covering {
             position: fixed !important;
             top: 0 !important;
@@ -235,11 +235,12 @@
             height: 100vh !important;
             border-radius: 0 !important;
             z-index: 9999 !important;
-            font-size: 3rem !important;
+            font-size: 3.5rem !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             transform: none !important;
+            box-shadow: none !important;
         }
 
         #successCard {
@@ -260,29 +261,25 @@
 </head>
 <body>
 
-    <!-- Hero / Intro -->
     <header class="hero">
         <h1>Happy 16th Birthday! 🎉✨</h1>
         <p>I put together a special message just for you...</p>
         <div class="scroll-indicator">👇 Scroll Down 👇</div>
     </header>
 
-    <!-- Scrollable Cards Section -->
     <div class="story-container">
         
-        <!-- Story Card 1 -->
         <div class="story-card">
             <img src="hello-kitty.gif" alt="Hello Kitty">
             <h2>Happy Sweet 16! 💖</h2>
             <p>
-                Wishing the most wonderful 16th birthday to someone who genuinely brings so much light, warmth, and warmth into my world every single day. Turning 16 is such an amazing milestone, and I hope today brings you all the happiness, joy, and sweetness that you deserve.
+                Wishing the most wonderful 16th birthday to someone who genuinely brings so much light, warmth, and happiness into my world every single day. Turning 16 is such an amazing milestone, and I hope today brings you all the joy and sweetness that you deserve.
             </p>
             <p>
                 From the moment you entered my life, everything became brighter. You have this natural ability to make even the simplest days feel completely unforgettable.
             </p>
         </div>
 
-        <!-- Story Card 2 -->
         <div class="story-card">
             <img src="bunny.jpg" alt="Cute Bunny">
             <h2>Unforgettable Memories 🌸</h2>
@@ -294,7 +291,6 @@
             </p>
         </div>
 
-        <!-- Story Card 3 -->
         <div class="story-card">
             <img src="mochi-cats.gif" alt="Mochi Cats Hug">
             <h2>Looking Ahead Together ✨</h2>
@@ -306,7 +302,6 @@
             </p>
         </div>
 
-        <!-- Story Card 4 -->
         <div class="story-card">
             <h2>One Important Question... 🎁</h2>
             <p>
@@ -319,7 +314,6 @@
 
     </div>
 
-    <!-- Final Question Section -->
     <div class="question-section">
         
         <div class="card" id="questionCard">
@@ -331,78 +325,7 @@
             </div>
         </div>
 
-        <!-- Success Screen -->
         <div class="card" id="successCard">
             <h2>Yay! Best Decision Ever! 🥰 🎉</h2>
             <div class="gif-container">
-                <img src="dancing-cat.gif" alt="Happy Dancing Cat">
-            </div>
-            <p style="font-size: 1.25rem; color: #590d22; font-weight: 700; margin-top: 15px;">
-                Happy 16th Birthday again, my love! ❤️✨
-            </p>
-        </div>
-
-    </div>
-
-    <script>
-        // Floating Hearts
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '💖';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-            document.body.appendChild(heart);
-        }
-
-        // Scroll Observer
-        const cards = document.querySelectorAll('.story-card, .card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        cards.forEach(card => observer.observe(card));
-
-        // Button Expansion Logic
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const questionCard = document.getElementById('questionCard');
-        const successCard = document.getElementById('successCard');
-
-        let scale = 1;
-        const noPhrases = [
-            "Are you sure? 🥺",
-            "Think again! 💖",
-            "Wrong answer! 😜",
-            "Please? 💕",
-            "You can't say no! ✨",
-            "Just press Yes!"
-        ];
-        let phraseIndex = 0;
-
-        noBtn.addEventListener('click', () => {
-            scale *= 1.45;
-            if (scale > 5.5) {
-                yesBtn.classList.add('covering');
-                yesBtn.innerHTML = "YES! 💖 (Click Me!)";
-            } else {
-                yesBtn.style.transform = `scale(${scale})`;
-                noBtn.innerText = noPhrases[phraseIndex % noPhrases.length];
-                phraseIndex++;
-            }
-        });
-
-        yesBtn.addEventListener('click', () => {
-            questionCard.style.display = 'none';
-            successCard.style.display = 'block';
-            successCard.classList.add('show');
-            successCard.scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
-</body>
-</html>
+                <img src="dancing-cat
