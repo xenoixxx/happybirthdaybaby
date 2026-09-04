@@ -19,7 +19,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            padding-bottom: 80px;
+            padding-bottom: 100px;
         }
 
         /* Floating Hearts Animation */
@@ -51,7 +51,7 @@
 
         /* Hero Header */
         .hero {
-            padding: 60px 20px 40px;
+            padding: 80px 20px 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -65,22 +65,23 @@
         .hero h1 {
             font-family: 'Pacifico', cursive;
             color: #ff477e;
-            font-size: 3.2rem;
-            margin-bottom: 15px;
+            font-size: 3.4rem;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: #590d22;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .scroll-indicator {
             font-size: 1.8rem;
             animation: bounce 2s infinite;
             color: #ff477e;
+            margin-top: 10px;
         }
 
         @keyframes bounce {
@@ -89,21 +90,21 @@
             60% { transform: translateY(-6px); }
         }
 
-        /* Story Cards */
+        /* Story Cards Container */
         .story-container {
             max-width: 650px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 55px; /* Increased space between story sections */
             position: relative;
             z-index: 1;
         }
 
         .story-card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 30px 25px;
+            padding: 40px 30px; /* Increased internal padding */
             border-radius: 25px;
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
             border: 3px solid #fff;
@@ -126,7 +127,7 @@
             height: auto;
             object-fit: contain;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
             background: #fff;
             padding: 8px;
@@ -135,16 +136,16 @@
         .story-card h2 {
             font-family: 'Pacifico', cursive;
             color: #ff477e;
-            font-size: 2rem;
-            margin-bottom: 12px;
+            font-size: 2.1rem;
+            margin-bottom: 20px;
         }
 
         .story-card p {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1.15rem;
+            line-height: 1.8; /* Generous line height */
             color: #590d22;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* Space between paragraphs */
         }
 
         .story-card p:last-child {
@@ -154,7 +155,7 @@
         /* Final Question Section */
         .question-section {
             max-width: 550px;
-            margin: 60px auto 0;
+            margin: 80px auto 0; /* Space above the proposal card */
             padding: 0 20px;
             position: relative;
             z-index: 1;
@@ -163,7 +164,7 @@
 
         .card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 35px 25px;
+            padding: 40px 30px;
             border-radius: 25px;
             box-shadow: 0 12px 30px rgba(255, 105, 180, 0.25);
             text-align: center;
@@ -174,8 +175,8 @@
         .card h2 {
             font-family: 'Pacifico', cursive;
             color: #ff477e;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2.3rem;
+            margin-bottom: 25px;
         }
 
         .gif-container img {
@@ -184,7 +185,7 @@
             max-height: 220px;
             object-fit: contain;
             border-radius: 20px;
-            margin: 15px 0 20px;
+            margin: 15px 0 25px;
             box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
             background: #fff;
             padding: 8px;
@@ -196,8 +197,8 @@
             align-items: center;
             gap: 25px;
             position: relative;
-            min-height: 100px;
-            margin-top: 20px;
+            min-height: 110px;
+            margin-top: 25px;
             padding: 20px 0;
         }
 
@@ -208,7 +209,6 @@
             font-weight: 800;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
@@ -217,6 +217,8 @@
             color: white;
             z-index: 10;
             transform-origin: center center;
+            /* Smooth scaling transition when clicked */
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease;
         }
 
         .btn-yes:hover {
@@ -227,6 +229,7 @@
             background-color: #ffb3c1;
             color: #590d22;
             z-index: 5;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .btn-no:hover {
@@ -258,12 +261,14 @@
         #successCard h2 {
             color: #ff0054;
             font-size: 2.3rem;
+            margin-bottom: 15px;
         }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.3rem; }
-            .story-card h2 { font-size: 1.6rem; }
-            .story-card p { font-size: 1rem; }
+            .story-card h2 { font-size: 1.7rem; }
+            .story-card p { font-size: 1.05rem; }
+            .story-card { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -365,7 +370,7 @@
             document.body.appendChild(heart);
         }
 
-        // Controlled Progressive Button Growth Logic
+        // Slow, gradual button growth logic across clicks 1 through 5
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const questionCard = document.getElementById('questionCard');
@@ -380,8 +385,8 @@
             "You can't say no! ✨"
         ];
 
-        // Progressive scale stages for clicks 1 to 5
-        const scaleStages = [1.5, 2.0, 2.5, 3.0, 3.5];
+        // Small, gradual scaling steps per click
+        const scaleStages = [1.18, 1.40, 1.68, 2.00, 2.40];
 
         noBtn.addEventListener('click', () => {
             noClickCount++;
